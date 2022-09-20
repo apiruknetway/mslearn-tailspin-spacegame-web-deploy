@@ -1,7 +1,3 @@
-steps:
-- checkout: self
-  persistCredentials: true
-  
 trigger:
 - '*'
 
@@ -33,6 +29,8 @@ stages:
       dotnetSdkVersion: '6.x'
 
     steps:
+    - checkout: self
+      persistCredentials: true
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
